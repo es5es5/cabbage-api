@@ -11,24 +11,26 @@ export class MicroorganismService {
   ) {}
 
   create(createMicroorganismDto: Microorganism) {
-    // return 'This action adds a new microorganism'
-    return createMicroorganismDto
+    return this.microorganismRepository.save(createMicroorganismDto)
   }
 
   findAll() {
-    return this.microorganismRepository.find()
+    return this.microorganismRepository.findBy({ able: true })
   }
 
-  findOne(id: number) {
-    return `This action returns a #${id} microorganism`
+  findOne(id: string): Promise<Microorganism> {
+    return this.microorganismRepository.findOneBy({ id })
   }
 
-  update(id: number, updateMicroorganismDto: Microorganism) {
+  update(id: string, updateMicroorganismDto: Microorganism) {
     // return `This action updates a #${id} microorganism`
+    this.microorganismRepository.update({ id }, updateMicroorganismDto)
     return updateMicroorganismDto
   }
 
-  remove(id: number) {
-    return `This action removes a #${id} microorganism`
+  remove(id: string) {
+    return this.microorganismRepository.update({ id }, {
+      able: false
+    })
   }
 }

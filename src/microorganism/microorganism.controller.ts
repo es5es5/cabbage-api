@@ -28,7 +28,7 @@ export class MicroorganismController {
 
   @Get(':id')
   findOne(@Param('id') id: string) {
-    return this.microorganismService.findOne(+id)
+    return this.microorganismService.findOne(id)
   }
 
   @Patch(':id')
@@ -36,11 +36,11 @@ export class MicroorganismController {
     @Param('id') id: string,
     @Body() microorganism: Microorganism,
   ) {
-    return this.microorganismService.update(+id, microorganism)
+    return this.microorganismService.update(id, microorganism)
   }
 
   @Delete(':id')
   remove(@Param('id') id: string) {
-    return this.microorganismService.remove(+id)
+    return this.microorganismService.remove(id)
   }
 }
