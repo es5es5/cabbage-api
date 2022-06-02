@@ -23,7 +23,6 @@ export class MicroorganismService {
   }
 
   update(id: string, updateMicroorganismDto: Microorganism) {
-    // return `This action updates a #${id} microorganism`
     this.microorganismRepository.update({ id }, updateMicroorganismDto)
     return updateMicroorganismDto
   }
