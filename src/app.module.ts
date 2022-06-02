@@ -4,10 +4,9 @@ import { AppController } from './app.controller';
 import { AppService } from './app.service';
 import { typeORMConfig } from './configs/typeorm.config';
 import { MicroorganismModule } from './microorganism/microorganism.module';
-import { OriginModule } from './origin/origin.module';
 
 @Module({
-  imports: [TypeOrmModule.forRoot(typeORMConfig), MicroorganismModule, OriginModule],
+  imports: [TypeOrmModule.forRoot(typeORMConfig), MicroorganismModule],
   controllers: [AppController],
   providers: [AppService],
 })
