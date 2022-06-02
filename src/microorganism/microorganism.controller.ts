@@ -8,9 +8,8 @@ import {
   Delete,
 } from '@nestjs/common'
 import { MicroorganismService } from './microorganism.service'
-import { CreateMicroorganismDto } from './dto/create-microorganism.dto'
-import { UpdateMicroorganismDto } from './dto/update-microorganism.dto'
 import { ApiTags } from '@nestjs/swagger'
+import { Microorganism } from './microorganism.entity'
 
 @Controller('microorganism')
 @ApiTags('균종 (microorganism)')
@@ -18,8 +17,8 @@ export class MicroorganismController {
   constructor(private readonly microorganismService: MicroorganismService) {}
 
   @Post()
-  create(@Body() createMicroorganismDto: CreateMicroorganismDto) {
-    return this.microorganismService.create(createMicroorganismDto)
+  create(@Body() microorganism: Microorganism) {
+    return this.microorganismService.create(microorganism)
   }
 
   @Get()
@@ -35,9 +34,9 @@ export class MicroorganismController {
   @Patch(':id')
   update(
     @Param('id') id: string,
-    @Body() updateMicroorganismDto: UpdateMicroorganismDto,
+    @Body() microorganism: Microorganism,
   ) {
-    return this.microorganismService.update(+id, updateMicroorganismDto)
+    return this.microorganismService.update(+id, microorganism)
   }
 
   @Delete(':id')
