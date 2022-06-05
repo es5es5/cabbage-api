@@ -9,7 +9,7 @@ import {
 } from '@nestjs/common'
 import { MicroorganismService } from './microorganism.service'
 import { ApiTags } from '@nestjs/swagger'
-import { Microorganism } from './microorganism.entity'
+import { Microorganism } from './model/microorganism.entity'
 
 @Controller('microorganism')
 @ApiTags('균종 (microorganism)')

@@ -1,0 +1,3 @@
+class MicroorganismDto {
+  name: string;
+}

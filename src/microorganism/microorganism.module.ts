@@ -1,8 +1,8 @@
 import { Module } from '@nestjs/common'
 import { TypeOrmModule } from '@nestjs/typeorm'
 import { MicroorganismController } from './microorganism.controller'
-import { Microorganism } from './microorganism.entity'
 import { MicroorganismService } from './microorganism.service'
+import { Microorganism } from './model/microorganism.entity'
 
 @Module({
   imports: [TypeOrmModule.forFeature([Microorganism]), MicroorganismModule],

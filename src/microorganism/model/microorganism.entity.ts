@@ -1,5 +1,5 @@
 import { ApiProperty } from "@nestjs/swagger"
-import { Column, Entity, PrimaryGeneratedColumn } from "typeorm"
+import { Column, CreateDateColumn, Entity, PrimaryGeneratedColumn } from "typeorm"
 
 @Entity()
 export class Microorganism {
@@ -14,4 +14,8 @@ export class Microorganism {
   @Column()
   @ApiProperty()
   name: string
+
+  @CreateDateColumn()
+  @ApiProperty()
+  createtime: Date
 }
