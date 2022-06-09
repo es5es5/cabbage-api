@@ -1,14 +1,8 @@
 import {
-  Controller,
-  Get,
-  Post,
-  Body,
-  Patch,
-  Param,
-  Delete,
+  Body, Controller, Delete, Get, Param, Post, Put
 } from '@nestjs/common'
-import { MicroorganismService } from './microorganism.service'
 import { ApiTags } from '@nestjs/swagger'
+import { MicroorganismService } from './microorganism.service'
 import { Microorganism } from './model/microorganism.entity'
 
 @Controller('microorganism')
@@ -31,7 +25,7 @@ export class MicroorganismController {
     return this.microorganismService.findOne(id)
   }
 
-  @Patch(':id')
+  @Put(':id')
   update(
     @Param('id') id: string,
     @Body() microorganism: Microorganism,

@@ -3,16 +3,16 @@ import {
   Get,
   Post,
   Body,
-  Patch,
   Param,
   Delete,
+  Put,
 } from '@nestjs/common'
 import { UsersService } from './users.service'
 import { ApiTags } from '@nestjs/swagger'
 import { Users } from './users.entity'
 
 @Controller('users')
-@ApiTags('균종 (users)')
+@ApiTags('유저 (users)')
 export class UsersController {
   constructor(private readonly usersService: UsersService) {}
 
@@ -31,7 +31,7 @@ export class UsersController {
     return this.usersService.findOne(id)
   }
 
-  @Patch(':id')
+  @Put(':id')
   update(
     @Param('id') id: string,
     @Body() users: Users,
