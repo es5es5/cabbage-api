@@ -1,6 +1,6 @@
-import { Body, Controller, Get, Post, Request, Res, UseGuards } from '@nestjs/common';
+import { Body, Controller, Get, HttpCode, HttpException, HttpStatus, Post, Req, Res, UseGuards } from '@nestjs/common';
 import { ApiTags } from '@nestjs/swagger';
-import { Response } from 'express';
+import { Request, Response } from 'express';
 import { UsersDto } from 'src/users/users.dto';
 import { AuthService } from './auth.service';
 import { JwtAuthGuard } from './jwt-auth.guard';
@@ -10,9 +10,12 @@ import { JwtAuthGuard } from './jwt-auth.guard';
 export class AuthController {
   constructor(private authService: AuthService) {}
 
+  @HttpCode(201)
   @Post('login')
-  async login(@Body() users: UsersDto, @Request() req: Request, @Res() res: Response) {
+  async login(@Body() users: UsersDto, @Req() req: Request, @Res({ passthrough: true }) res: Response) {
     const { accessToken } = await this.authService.login(users);
+
+    const origin = req.get('Origin')
 
     res
       .set('Access-Control-Allow-Credentials', 'true')
@@ -23,12 +26,13 @@ export class AuthController {
         secure: true,
         httpOnly: false,
       })
-    // return this.authService.login(users);
+
+    throw new HttpException('Success Login.', HttpStatus.OK)
   }
 
   @UseGuards(JwtAuthGuard)
   @Get('profile')
-  getProfile(@Request() req) {
+  getProfile(@Req() req) {
     return req.user;
   }
 }
