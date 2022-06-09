@@ -1,5 +1,6 @@
 import { Injectable } from '@nestjs/common';
 import { InjectRepository } from '@nestjs/typeorm';
+import { UsersDto } from './users.dto';
 import { Users } from './users.entity';
 import { UsersRepository } from './users.repository';
 
@@ -10,7 +11,7 @@ export class UsersService {
     private usersRepository: UsersRepository
   ) {}
 
-  create(user: Users) {
+  create(user: UsersDto) {
     return this.usersRepository.save(user)
   }
 
@@ -26,7 +27,7 @@ export class UsersService {
     return this.usersRepository.findOneBy({ username, able: true })
   }
 
-  update(id: string, user: Users) {
+  update(id: string, user: UsersDto) {
     this.usersRepository.update({ id }, user)
     return user
   }

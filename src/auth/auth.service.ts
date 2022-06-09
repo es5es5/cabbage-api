@@ -1,9 +1,7 @@
-import { Injectable } from '@nestjs/common';
-import { UsersService } from '../users/users.service';
+import { HttpException, HttpStatus, Injectable } from '@nestjs/common';
 import { JwtService } from '@nestjs/jwt';
-import { Users } from 'src/users/users.entity';
 import { UsersDto } from 'src/users/users.dto';
-import { access } from 'fs';
+import { UsersService } from '../users/users.service';
 
 @Injectable()
 export class AuthService {
@@ -26,6 +24,8 @@ export class AuthService {
     if (await this.validateUser(users)) {
       const payload = { username: users.username }
       return { accessToken: this.jwtService.sign(payload) }
+    } else {
+      throw new HttpException('사용자 정보가 없습니다.', HttpStatus.UNAUTHORIZED)
     }
   }
 }

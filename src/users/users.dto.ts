@@ -1,9 +1,9 @@
 import { ApiProperty } from "@nestjs/swagger";
 
 export class UsersDto {
-  @ApiProperty()
+  @ApiProperty({ description: '이름' })
   readonly username: string;
 
-  @ApiProperty()
+  @ApiProperty({ description: '비밀번호',  })
   readonly password: string;
 }
