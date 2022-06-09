@@ -19,7 +19,11 @@ export class UsersService {
   }
 
   findOne(id: string): Promise<Users> {
-    return this.usersRepository.findOneBy({ id })
+    return this.usersRepository.findOneBy({ id, able: true })
+  }
+
+  findUser(username: string): Promise<Users> {
+    return this.usersRepository.findOneBy({ username, able: true })
   }
 
   update(id: string, user: Users) {

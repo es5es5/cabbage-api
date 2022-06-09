@@ -19,7 +19,7 @@ export class MicroorganismService {
   }
 
   findOne(id: string): Promise<Microorganism> {
-    return this.microorganismRepository.findOneBy({ id })
+    return this.microorganismRepository.findOneBy({ id, able: true })
   }
 
   update(id: string, updateMicroorganismDto: Microorganism) {
