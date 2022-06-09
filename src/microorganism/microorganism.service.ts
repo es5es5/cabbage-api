@@ -1,13 +1,13 @@
 import { Injectable } from '@nestjs/common'
 import { InjectRepository } from '@nestjs/typeorm'
-import { Repository } from 'typeorm'
+import { MicroorganismRepository } from './microorganism.repository'
 import { Microorganism } from './model/microorganism.entity'
 
 @Injectable()
 export class MicroorganismService {
   constructor(
     @InjectRepository(Microorganism)
-    private microorganismRepository: Repository<Microorganism>
+    private microorganismRepository: MicroorganismRepository
   ) {}
 
   create(createMicroorganismDto: Microorganism) {
