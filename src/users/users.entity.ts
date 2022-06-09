@@ -15,7 +15,7 @@ export class Users {
   @ApiProperty()
   createtime: Date
 
-  @Column()
+  @Column({ unique: true })
   @ApiProperty()
   username: string
 
