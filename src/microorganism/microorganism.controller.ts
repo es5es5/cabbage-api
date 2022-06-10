@@ -2,8 +2,8 @@ import {
   Body, Controller, Delete, Get, Param, Post, Put
 } from '@nestjs/common'
 import { ApiTags } from '@nestjs/swagger'
+import { MicroorganismDto } from './microorganism.dto'
 import { MicroorganismService } from './microorganism.service'
-import { MicroorganismDto } from './model/microorganism.dto'
 
 @Controller('microorganism')
 @ApiTags('균종 (microorganism)')

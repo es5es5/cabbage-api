@@ -1,8 +1,8 @@
 import { Injectable } from '@nestjs/common'
 import { InjectRepository } from '@nestjs/typeorm'
 import { MicroorganismRepository } from './microorganism.repository'
-import { MicroorganismDto } from './model/microorganism.dto'
-import { Microorganism } from './model/microorganism.entity'
+import { Microorganism } from './microorganism.entity'
+import { MicroorganismDto } from './microorganism.dto'
 
 @Injectable()
 export class MicroorganismService {
