@@ -1,6 +1,7 @@
 import { Injectable } from '@nestjs/common'
 import { InjectRepository } from '@nestjs/typeorm'
 import { MicroorganismRepository } from './microorganism.repository'
+import { MicroorganismDto } from './model/microorganism.dto'
 import { Microorganism } from './model/microorganism.entity'
 
 @Injectable()
@@ -10,21 +11,21 @@ export class MicroorganismService {
     private microorganismRepository: MicroorganismRepository
   ) {}
 
-  create(createMicroorganismDto: Microorganism) {
-    return this.microorganismRepository.save(createMicroorganismDto)
+  create(microorganism: MicroorganismDto) {
+    return this.microorganismRepository.save(microorganism)
   }
 
   findAll() {
     return this.microorganismRepository.findBy({ able: true })
   }
 
-  findOne(id: string): Promise<Microorganism> {
+  findOne(id: string): Promise<MicroorganismDto> {
     return this.microorganismRepository.findOneBy({ id, able: true })
   }
 
-  update(id: string, updateMicroorganismDto: Microorganism) {
-    this.microorganismRepository.update({ id }, updateMicroorganismDto)
-    return updateMicroorganismDto
+  update(id: string, microorganism: MicroorganismDto) {
+    this.microorganismRepository.update({ id }, microorganism)
+    return microorganism
   }
 
   remove(id: string) {
