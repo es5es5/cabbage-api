@@ -11,11 +11,12 @@ export class Microorganism {
   @ApiProperty()
   able: boolean
 
+  @CreateDateColumn()
+  @ApiProperty()
+  createtime: Date
+
   @Column()
   @ApiProperty()
   name: string
 
-  @CreateDateColumn()
-  @ApiProperty()
-  createtime: Date
 }
