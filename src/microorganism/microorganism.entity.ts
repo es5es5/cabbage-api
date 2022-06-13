@@ -1,5 +1,6 @@
 import { ApiProperty } from "@nestjs/swagger"
-import { Column, CreateDateColumn, Entity, PrimaryGeneratedColumn } from "typeorm"
+import { Origin } from "src/origin/origin.entity"
+import { Column, CreateDateColumn, Entity, JoinColumn, ManyToOne, PrimaryGeneratedColumn } from "typeorm"
 
 @Entity()
 export class Microorganism {
@@ -19,4 +20,7 @@ export class Microorganism {
   @ApiProperty()
   name: string
 
+  @ManyToOne(() => Origin, { eager: true })
+  @JoinColumn({ name: 'origin_id' })
+  origin: Origin
 }

@@ -1,8 +1,11 @@
 import { Module } from '@nestjs/common';
-import { OriginService } from './origin.service';
+import { TypeOrmModule } from '@nestjs/typeorm';
 import { OriginController } from './origin.controller';
+import { Origin } from './origin.entity';
+import { OriginService } from './origin.service';
 
 @Module({
+  imports: [TypeOrmModule.forFeature([Origin])],
   controllers: [OriginController],
   providers: [OriginService]
 })
