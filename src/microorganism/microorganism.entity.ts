@@ -20,6 +20,10 @@ export class Microorganism {
   @ApiProperty()
   name: string
 
+  @Column({ name: 'origin_id' })
+  @ApiProperty()
+  originId: string
+
   @ManyToOne(() => Origin, { eager: true })
   @JoinColumn({ name: 'origin_id' })
   origin: Origin
