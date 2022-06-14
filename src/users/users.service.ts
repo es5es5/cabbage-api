@@ -37,4 +37,9 @@ export class UsersService {
       able: false
     })
   }
+
+  async check(username: string) {
+    const [result, count] = await this.usersRepository.findAndCountBy({ able: true, username })
+    return count < 1
+  }
 }
