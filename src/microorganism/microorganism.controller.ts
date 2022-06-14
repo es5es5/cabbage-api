@@ -1,7 +1,8 @@
 import {
-  Body, Controller, Delete, Get, Param, Post, Put
+  Body, Controller, Delete, Get, Param, Post, Put, UseGuards
 } from '@nestjs/common'
-import { ApiTags } from '@nestjs/swagger'
+import { ApiBearerAuth, ApiTags } from '@nestjs/swagger'
+import { JwtAuthGuard } from 'src/auth/jwt-auth.guard'
 import { MicroorganismDto } from './microorganism.dto'
 import { MicroorganismService } from './microorganism.service'
 
@@ -16,6 +17,8 @@ export class MicroorganismController {
   }
 
   @Get()
+  @ApiBearerAuth('accessToken')
+  @UseGuards(JwtAuthGuard)
   findAll() {
     return this.microorganismService.findAll()
   }

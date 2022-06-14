@@ -27,7 +27,7 @@ export class AuthController {
         httpOnly: false,
       })
 
-    throw new HttpException('Success Login.', HttpStatus.OK)
+    throw new HttpException({ message: 'Success Login.', accessToken }, HttpStatus.OK)
   }
 
   @UseGuards(JwtAuthGuard)

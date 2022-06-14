@@ -13,6 +13,10 @@ async function bootstrap() {
     .setTitle('Cabbage API')
     .setDescription('')
     .setVersion('1.0')
+    .addBearerAuth(
+      { type: 'http', scheme: 'bearer', bearerFormat: 'JWT' },
+      'accessToken',
+    )
     .build();
 
   const document = SwaggerModule.createDocument(app, swaggerConfig);
