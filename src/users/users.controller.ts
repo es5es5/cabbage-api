@@ -8,7 +8,7 @@ import {
   Put,
 } from '@nestjs/common'
 import { UsersService } from './users.service'
-import { ApiTags } from '@nestjs/swagger'
+import { ApiOperation, ApiTags } from '@nestjs/swagger'
 import { UsersDto } from './users.dto'
 
 @Controller('users')
@@ -45,6 +45,7 @@ export class UsersController {
   }
 
   @Get('/check/:username')
+  @ApiOperation({ summary: '중복체크' })
   check(@Param('username') username: string) {
     return this.usersService.check(username)
   }

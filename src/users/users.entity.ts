@@ -22,4 +22,8 @@ export class Users {
   @Column()
   @ApiProperty()
   password: string
+
+  @Column({ name: 'display_name' })
+  @ApiProperty()
+  displayName: string
 }
