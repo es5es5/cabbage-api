@@ -17,7 +17,7 @@ export class MicroorganismController {
   }
 
   @Get()
-  @ApiBearerAuth('accessToken')
+  @ApiBearerAuth('Authorization')
   @UseGuards(JwtAuthGuard)
   findAll() {
     return this.microorganismService.findAll()

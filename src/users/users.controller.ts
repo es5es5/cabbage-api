@@ -1,15 +1,10 @@
 import {
-  Controller,
-  Get,
-  Post,
-  Body,
-  Param,
-  Delete,
-  Put,
+  Body, Controller, Delete, Get, Param, Post, Put,
+  Req
 } from '@nestjs/common'
-import { UsersService } from './users.service'
 import { ApiOperation, ApiTags } from '@nestjs/swagger'
 import { UsersDto } from './users.dto'
+import { UsersService } from './users.service'
 
 @Controller('users')
 @ApiTags('유저 (users)')
@@ -24,6 +19,12 @@ export class UsersController {
   @Get()
   findAll() {
     return this.usersService.findAll()
+  }
+
+  @Get('info')
+  info(@Req() req) {
+    console.info(req.user)
+    // return this.usersService.findOne(id)
   }
 
   @Get(':id')

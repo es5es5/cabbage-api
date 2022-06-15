@@ -18,22 +18,22 @@ export class AuthController {
     const origin = req.get('Origin')
 
     res
+      .set('Access-Control-Allow-Credentials', 'true')
+      .set('Access-Control-Allow-Origin', origin)
       .setHeader('Authorization', 'Bearer ' + accessToken)
-      // .set('Access-Control-Allow-Credentials', 'true')
-      // .set('Access-Control-Allow-Origin', origin)
-      // .cookie('accessToken', accessToken, {
-      //   expires: new Date(new Date().getTime() + 60 * 1000 * 60 * 16), // 16 hours
-      //   // sameSite: 'none',
-      //   // secure: true,
-      //   httpOnly: false,
-      // })
+      .cookie('accessToken', accessToken, {
+        expires: new Date(new Date().getTime() + 60 * 1000 * 60 * 16), // 16 hours
+        // sameSite: 'none',
+        // secure: true,
+        httpOnly: false,
+      })
 
     return accessToken
   }
 
   @Get('profile')
   @UseGuards(JwtAuthGuard)
-  @ApiBearerAuth('accessToken')
+  @ApiBearerAuth('Authorization')
   getProfile(@Req() req) {
     return req.user;
   }
