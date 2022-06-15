@@ -4,7 +4,7 @@ import { SwaggerModule, DocumentBuilder } from '@nestjs/swagger';
 
 async function bootstrap() {
   const PREFIX = 'rest'
-  const app = await NestFactory.create(AppModule, { cors:true })
+  const app = await NestFactory.create(AppModule, { cors: true })
   app.enableCors();
   app.setGlobalPrefix(PREFIX);
 
