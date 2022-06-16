@@ -6,7 +6,7 @@ async function bootstrap() {
   const PREFIX = 'rest'
   const app = await NestFactory.create(AppModule, { cors: true })
   app.enableCors({
-    origin: ['http://localhost:5000'],
+    origin: ['http://localhost:5000', 'https://cuome.netlify.app/'],
     credentials: true,
   });
   app.setGlobalPrefix(PREFIX);
