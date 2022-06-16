@@ -21,8 +21,10 @@ export class UsersService {
     return this.usersRepository.findBy({ able: true })
   }
 
-  findOne(id: string): Promise<Users> {
-    return this.usersRepository.findOneBy({ id, able: true })
+  async findOne(id: string): Promise<Users> {
+    const user = await this.usersRepository.findOneBy({ id, able: true })
+    delete user['password']
+    return user
   }
 
   findUser(username: string): Promise<Users> {

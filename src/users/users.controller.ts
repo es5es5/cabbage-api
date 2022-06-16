@@ -11,20 +11,9 @@ import { UsersService } from './users.service'
 export class UsersController {
   constructor(private readonly usersService: UsersService) {}
 
-  @Post()
-  create(@Body() users: UsersDto) {
-    return this.usersService.create(users)
-  }
-
   @Get()
   findAll() {
     return this.usersService.findAll()
-  }
-
-  @Get('info')
-  info(@Req() req) {
-    console.info(req.user)
-    // return this.usersService.findOne(id)
   }
 
   @Get(':id')
