@@ -1,4 +1,4 @@
-import { Body, Controller, Get, Post, Req, Res, UseGuards } from '@nestjs/common';
+import { Body, Controller, Get, HttpCode, Post, Req, Res, UseGuards } from '@nestjs/common';
 import { ApiBearerAuth, ApiTags } from '@nestjs/swagger';
 import { Request, Response } from 'express';
 import { UsersDto } from 'src/users/users.dto';
@@ -38,6 +38,16 @@ export class AuthController {
       })
 
     return accessToken
+  }
+
+  @Post('logout')
+  @UseGuards(JwtAuthGuard)
+  async logout(@Req() request: Request, @Res() response: Response) {
+    response.setHeader(
+      'Set-Cookie',
+      this.authService.getCookieForLogOut(),
+    );
+    return response.sendStatus(200);
   }
 
   @Get('profile')

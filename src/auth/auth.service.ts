@@ -1,8 +1,9 @@
-import { HttpException, HttpStatus, Injectable, NotFoundException, UnauthorizedException } from '@nestjs/common';
+import { HttpException, HttpStatus, Injectable, NotFoundException, Res, UnauthorizedException } from '@nestjs/common';
 import { JwtService } from '@nestjs/jwt';
 import { UsersService } from '../users/users.service';
 import { LoginDto } from './login.dto';
 import * as bcrypt from 'bcrypt';
+import { Request, Response } from 'express';
 
 @Injectable()
 export class AuthService {
@@ -35,5 +36,9 @@ export class AuthService {
     } else {
       throw new HttpException('사용자 정보가 없습니다.', HttpStatus.UNAUTHORIZED)
     }
+  }
+
+  public getCookieForLogOut() {
+    return `Authentication=; HttpOnly; Path=/; Max-Age=0`;
   }
 }
