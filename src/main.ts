@@ -6,7 +6,7 @@ async function bootstrap() {
   const PREFIX = 'rest'
   const app = await NestFactory.create(AppModule, { cors: true })
   app.enableCors({
-    origin: 'https://cuome.netlify.app',
+    origin: ['https://cuome.netlify.app', 'http://localhost:5000'],
     credentials: true,
   });
   app.setGlobalPrefix(PREFIX);
@@ -25,5 +25,6 @@ async function bootstrap() {
   const document = SwaggerModule.createDocument(app, swaggerConfig);
   SwaggerModule.setup('swagger', app, document);
   await app.listen(process.env.PORT || 3000);
+  console.info(process.env)
 }
 bootstrap();
