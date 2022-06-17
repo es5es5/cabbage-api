@@ -34,7 +34,7 @@ export class AuthController {
         expires: new Date(new Date().getTime() + 60 * 1000 * 60 * 16), // 16 hours
         // sameSite: 'none',
         secure: process.env.NODE_ENV === 'production',
-        httpOnly: false,
+        httpOnly: process.env.NODE_ENV === 'production',
       })
 
     return accessToken
