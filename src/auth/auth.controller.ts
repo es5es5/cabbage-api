@@ -33,8 +33,8 @@ export class AuthController {
       .cookie('accessToken', accessToken, {
         expires: new Date(new Date().getTime() + 60 * 1000 * 60 * 16), // 16 hours
         // sameSite: 'none',
-        secure: process.env.NODE_ENV === 'production',
-        httpOnly: process.env.NODE_ENV === 'production',
+        // secure: process.env.NODE_ENV === 'production',
+        // httpOnly: process.env.NODE_ENV === 'production',
       })
 
     return accessToken
