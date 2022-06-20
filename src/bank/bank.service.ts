@@ -1,4 +1,4 @@
-import { Injectable } from '@nestjs/common';
+import { Injectable, Options } from '@nestjs/common';
 import { InjectRepository } from '@nestjs/typeorm';
 import { BankDto } from './bank.dto';
 import { Bank } from './bank.entity';
@@ -19,7 +19,7 @@ export class BankService {
     return this.bankRepository.findBy({ able: true })
   }
 
-  findOne(id: string): Promise<BankDto> {
+  findOne(id: string): Promise<Bank> {
     return this.bankRepository.findOneBy({ id, able: true })
   }
 

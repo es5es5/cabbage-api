@@ -1,7 +1,8 @@
 import { ApiProperty } from "@nestjs/swagger"
 import { Origin } from "src/origin/origin.entity"
+import { UsersDto } from "src/users/users.dto"
 import { Users } from "src/users/users.entity"
-import { Column, CreateDateColumn, Entity, JoinColumn, ManyToOne, PrimaryGeneratedColumn } from "typeorm"
+import { Column, CreateDateColumn, Entity, JoinColumn, ManyToMany, ManyToOne, OneToMany, OneToOne, PrimaryGeneratedColumn } from "typeorm"
 
 @Entity({ name: 'cuome_bank' })
 export class Bank {
@@ -21,7 +22,7 @@ export class Bank {
   @ApiProperty()
   writerId: string
 
-  @ManyToOne(() => Users, { eager: true })
+  @ManyToOne(() => Users, user => user.id, { eager: true })
   @JoinColumn({ name: 'writer_id' })
   writer: Users
 
@@ -49,9 +50,9 @@ export class Bank {
   @ApiProperty()
   originId: string
 
-  @ManyToOne(() => Origin, { eager: true })
-  @JoinColumn({ name: 'origin_id' })
-  origin: Origin
+  // @ManyToMany(() => Origin, { eager: true })
+  // @JoinColumn({ name: 'origin_id' })
+  // origin: Origin
 
   @Column({ name: 'getting_date' })
   @ApiProperty()
