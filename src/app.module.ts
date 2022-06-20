@@ -6,9 +6,10 @@ import { typeORMConfig } from './configs/typeorm.config';
 import { MicroorganismModule } from './microorganism/microorganism.module';
 import { UsersModule } from './users/users.module';
 import { OriginModule } from './origin/origin.module';
+import { BankModule } from './bank/bank.module';
 
 @Module({
-  imports: [TypeOrmModule.forRoot(typeORMConfig), MicroorganismModule, AuthModule, UsersModule, OriginModule],
+  imports: [TypeOrmModule.forRoot(typeORMConfig), MicroorganismModule, AuthModule, UsersModule, OriginModule, BankModule],
   controllers: [AppController],
   providers: [],
 })

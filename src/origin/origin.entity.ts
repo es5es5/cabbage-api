@@ -1,9 +1,9 @@
 import { ApiProperty } from "@nestjs/swagger"
 import { Column, CreateDateColumn, Entity, PrimaryGeneratedColumn } from "typeorm"
 
-@Entity()
+@Entity({ name: 'cuome_origin' })
 export class Origin {
-  @PrimaryGeneratedColumn('uuid')
+  @PrimaryGeneratedColumn('increment')
   @ApiProperty()
   id: string
 
@@ -18,4 +18,8 @@ export class Origin {
   @Column()
   @ApiProperty()
   name: string
+
+  @Column()
+  @ApiProperty()
+  memo: string
 }
