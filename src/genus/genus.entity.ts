@@ -31,4 +31,8 @@ export class Genus {
   @Column()
   @ApiProperty()
   memo: string
+
+  @Column()
+  @ApiProperty()
+  type: string
 }

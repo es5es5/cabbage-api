@@ -13,7 +13,6 @@ export class GenusController {
   @UseGuards(JwtAuthGuard)
   @ApiBearerAuth('Authorization')
   create(@Req() reqeust, @Body() genus: GenusDto) {
-    console.info(reqeust)
     genus.writerId = reqeust.user.userId
     return this.genusService.create(genus);
   }
