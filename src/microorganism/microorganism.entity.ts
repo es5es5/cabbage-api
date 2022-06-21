@@ -26,5 +26,5 @@ export class Microorganism {
 
   @ManyToOne(() => Origin, { eager: true })
   @JoinColumn({ name: 'origin_id' })
-  origin: Origin
+  originInfo: Origin
 }

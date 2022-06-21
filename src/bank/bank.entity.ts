@@ -8,7 +8,7 @@ import { Column, CreateDateColumn, Entity, JoinColumn, ManyToMany, ManyToOne, On
 export class Bank {
   @PrimaryGeneratedColumn('increment')
   @ApiProperty()
-  id: string
+  id: number
 
   @Column({ default: true })
   @ApiProperty()
@@ -18,13 +18,14 @@ export class Bank {
   @ApiProperty()
   createtime: Date
 
-  @Column({ name: 'writer_id' })
-  @ApiProperty()
-  writerId: string
 
+  @Column({ name: 'writer_id' })
+  writerId: number
+
+  @ApiProperty()
   @ManyToOne(() => Users, user => user.id, { eager: true })
   @JoinColumn({ name: 'writer_id' })
-  writer: Users
+  writerInfo: Users
 
   @Column()
   @ApiProperty()
@@ -50,9 +51,9 @@ export class Bank {
   @ApiProperty()
   originId: string
 
-  // @ManyToMany(() => Origin, { eager: true })
-  // @JoinColumn({ name: 'origin_id' })
-  // origin: Origin
+  @ManyToMany(() => Origin, { eager: true })
+  @JoinColumn({ name: 'origin_id' })
+  originInfo: Origin
 
   @Column({ name: 'getting_date' })
   @ApiProperty()

@@ -19,16 +19,16 @@ export class BankService {
     return this.bankRepository.findBy({ able: true })
   }
 
-  findOne(id: string): Promise<Bank> {
+  findOne(id: number): Promise<Bank> {
     return this.bankRepository.findOneBy({ id, able: true })
   }
 
-  update(id: string, bank: BankDto) {
+  update(id: number, bank: BankDto) {
     this.bankRepository.update({ id }, bank)
     return bank
   }
 
-  remove(id: string) {
+  remove(id: number) {
     return this.bankRepository.update({ id }, {
       able: false
     })

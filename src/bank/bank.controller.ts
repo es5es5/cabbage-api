@@ -27,21 +27,21 @@ export class BankController {
   @Get(':id')
   @UseGuards(JwtAuthGuard)
   @ApiBearerAuth('Authorization')
-  findOne(@Param('id') id: string) {
+  findOne(@Param('id') id: number) {
     return this.bankService.findOne(id);
   }
 
   @Patch(':id')
   @UseGuards(JwtAuthGuard)
   @ApiBearerAuth('Authorization')
-  update(@Param('id') id: string, @Body() updateBankDto: BankDto) {
+  update(@Param('id') id: number, @Body() updateBankDto: BankDto) {
     return this.bankService.update(id, updateBankDto);
   }
 
   @Delete(':id')
   @UseGuards(JwtAuthGuard)
   @ApiBearerAuth('Authorization')
-  remove(@Param('id') id: string) {
+  remove(@Param('id') id: number) {
     return this.bankService.remove(id);
   }
 }

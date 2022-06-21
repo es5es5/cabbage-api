@@ -5,7 +5,7 @@ import { Column, CreateDateColumn, Entity, PrimaryGeneratedColumn } from "typeor
 export class Users {
   @PrimaryGeneratedColumn('increment')
   @ApiProperty()
-  id: string
+  id: number
 
   @Column({ default: true })
   @ApiProperty()

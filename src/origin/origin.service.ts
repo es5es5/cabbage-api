@@ -19,16 +19,16 @@ export class OriginService {
     return this.originRepository.findBy({ able: true })
   }
 
-  findOne(id: string): Promise<OriginDto> {
+  findOne(id: number): Promise<OriginDto> {
     return this.originRepository.findOneBy({ id, able: true })
   }
 
-  update(id: string, origin: OriginDto) {
+  update(id: number, origin: OriginDto) {
     this.originRepository.update({ id }, origin)
     return origin
   }
 
-  remove(id: string) {
+  remove(id: number) {
     return this.originRepository.update({ id }, {
       able: false
     })

@@ -14,7 +14,7 @@ export class BankDto {
   number: number
 
   @ApiProperty({ description: '' })
-  writerId: string
+  writerId: number
 
   @ApiProperty({ description: '' })
   category: string

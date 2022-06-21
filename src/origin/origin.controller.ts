@@ -19,17 +19,17 @@ export class OriginController {
   }
 
   @Get(':id')
-  findOne(@Param('id') id: string) {
+  findOne(@Param('id') id: number) {
     return this.originService.findOne(id);
   }
 
   @Put(':id')
-  update(@Param('id') id: string, @Body() updateOriginDto: OriginDto) {
+  update(@Param('id') id: number, @Body() updateOriginDto: OriginDto) {
     return this.originService.update(id, updateOriginDto);
   }
 
   @Delete(':id')
-  remove(@Param('id') id: string) {
+  remove(@Param('id') id: number) {
     return this.originService.remove(id);
   }
 }
