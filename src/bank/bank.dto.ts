@@ -1,6 +1,8 @@
 import { ApiProperty } from "@nestjs/swagger";
 
 export class BankDto {
+  writerId: number
+
   @ApiProperty({ description: '' })
   code: string
 
@@ -12,9 +14,6 @@ export class BankDto {
 
   @ApiProperty({ description: '' })
   number: number
-
-  @ApiProperty({ description: '' })
-  writerId: number
 
   @ApiProperty({ description: '' })
   category: string

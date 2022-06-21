@@ -7,9 +7,10 @@ import { MicroorganismModule } from './microorganism/microorganism.module';
 import { UsersModule } from './users/users.module';
 import { OriginModule } from './origin/origin.module';
 import { BankModule } from './bank/bank.module';
+import { GenusModule } from './genus/genus.module';
 
 @Module({
-  imports: [TypeOrmModule.forRoot(typeORMConfig), MicroorganismModule, AuthModule, UsersModule, OriginModule, BankModule],
+  imports: [TypeOrmModule.forRoot(typeORMConfig), MicroorganismModule, AuthModule, UsersModule, OriginModule, BankModule, GenusModule],
   controllers: [AppController],
   providers: [],
 })
