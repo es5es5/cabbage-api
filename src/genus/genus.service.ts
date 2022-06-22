@@ -16,7 +16,7 @@ export class GenusService {
   }
 
   findAll() {
-    return this.genusRepository.findBy({ able: true })
+    return this.genusRepository.find({ where: { able: true }, order: { createtime: 'DESC' }})
   }
 
   findOne(id: number): Promise<Genus> {

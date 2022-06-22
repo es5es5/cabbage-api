@@ -16,7 +16,7 @@ export class PlacementService {
   }
 
   findAll() {
-    return this.placementRepository.findBy({ able: true })
+    return this.placementRepository.find({ where: { able: true }, order: { createtime: 'DESC' }})
   }
 
   findOne(id: number): Promise<Placement> {

@@ -16,7 +16,8 @@ export class BankService {
   }
 
   findAll() {
-    return this.bankRepository.findBy({ able: true })
+    // return this.bankRepository.findBy({ able: true })
+    return this.bankRepository.find({ where: { able: true }, order: { createtime: 'DESC' }})
   }
 
   findOne(id: number): Promise<Bank> {

@@ -18,7 +18,7 @@ export class UsersService {
   }
 
   findAll() {
-    return this.usersRepository.findBy({ able: true })
+    return this.usersRepository.find({ where: { able: true }, order: { createtime: 'DESC' }})
   }
 
   async findOne(id: number): Promise<Users> {

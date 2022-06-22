@@ -16,7 +16,7 @@ export class OriginService {
   }
 
   findAll() {
-    return this.originRepository.findBy({ able: true })
+    return this.originRepository.find({ where: { able: true }, order: { createtime: 'DESC' }})
   }
 
   findOne(id: number): Promise<OriginDto> {
