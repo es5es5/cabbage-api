@@ -1,6 +1,7 @@
 import { ApiProperty } from "@nestjs/swagger"
 import { Genus } from "src/genus/genus.entity"
 import { Origin } from "src/origin/origin.entity"
+import { Placement } from "src/placement/placement.entity"
 import { Users } from "src/users/users.entity"
 import { Column, CreateDateColumn, Entity, JoinColumn, ManyToOne, PrimaryGeneratedColumn } from "typeorm"
 
@@ -68,11 +69,19 @@ export class Bank {
 
   @Column({ name: 'stock_placement_id' })
   @ApiProperty()
-  stockPlacementId: string
+  stockPlacementId: number
 
-  @Column({ name: 'rent_placement' })
+  @JoinColumn({ name: 'stock_placement_id' })
+  @ManyToOne(() => Placement, a => a.id, { eager: true })
+  stockPlacementInfo: Placement
+
+  @Column({ name: 'rent_placement_id' })
   @ApiProperty()
-  rentPlacement: string
+  rentPlacementId: number
+
+  @JoinColumn({ name: 'rent_placement_id' })
+  @ManyToOne(() => Placement, a => a.id, { eager: true })
+  rentPlacementInfo: Placement
 
   @Column({ name: 'liquid_count' })
   @ApiProperty()

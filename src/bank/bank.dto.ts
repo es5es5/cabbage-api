@@ -25,10 +25,10 @@ export class BankDto {
   gettingDate: Date
 
   @ApiProperty({ description: '' })
-  stockPlacementId: string
+  stockPlacementId: number
 
   @ApiProperty({ description: '' })
-  rentPlacement: string
+  rentPlacementId: number
 
   @ApiProperty({ description: '' })
   liquidCount: number
