@@ -7,19 +7,19 @@ export class BankDto {
   code: string
 
   @ApiProperty({ description: '' })
-  genus: string
+  genusId: number
 
   @ApiProperty({ description: '' })
-  species: string
+  speciesId: number
 
   @ApiProperty({ description: '' })
-  number: number
+  bankNumber: number
 
   @ApiProperty({ description: '' })
   category: string
 
   @ApiProperty({ description: '' })
-  originId: string
+  originId: number
 
   @ApiProperty({ description: '' })
   gettingDate: Date

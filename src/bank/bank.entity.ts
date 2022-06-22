@@ -1,4 +1,6 @@
 import { ApiProperty } from "@nestjs/swagger"
+import { Genus } from "src/genus/genus.entity"
+import { Origin } from "src/origin/origin.entity"
 import { Users } from "src/users/users.entity"
 import { Column, CreateDateColumn, Entity, JoinColumn, ManyToOne, PrimaryGeneratedColumn } from "typeorm"
 
@@ -20,25 +22,33 @@ export class Bank {
   @ApiProperty()
   writerId: number
 
-  @ManyToOne(() => Users, user => user.id, { eager: true })
   @JoinColumn({ name: 'writer_id' })
+  @ManyToOne(() => Users, a => a.id, { eager: true })
   writerInfo: Users
 
   @Column()
   @ApiProperty()
   code: string
 
-  @Column()
+  @Column({ name: 'genus_id' })
   @ApiProperty()
-  genus: string
+  genusId: number
+
+  @JoinColumn({ name: 'genus_id' })
+  @ManyToOne(() => Genus, a => a.id, { eager: true })
+  genusInfo: Genus
+
+  @Column({ name: 'species_id' })
+  @ApiProperty()
+  speciesId: number
+
+  @JoinColumn({ name: 'species_id' })
+  @ManyToOne(() => Genus, a => a.id, { eager: true })
+  speciesInfo: Genus
 
   @Column()
-  @ApiProperty()
-  species: string
-
-  @Column()
-  @ApiProperty()
-  number: number
+  @ApiProperty({ name: 'bank_id' })
+  bankNumber: number
 
   @Column()
   @ApiProperty()
@@ -46,11 +56,11 @@ export class Bank {
 
   @Column({ name: 'origin_id' })
   @ApiProperty()
-  originId: string
+  originId: number
 
-  // @ManyToMany(() => Origin, { eager: true })
-  // @JoinColumn({ name: 'origin_id' })
-  // originInfo: Origin
+  @JoinColumn({ name: 'origin_id' })
+  @ManyToOne(() => Origin, a => a.id, { eager: true })
+  originInfo: Origin
 
   @Column({ name: 'getting_date' })
   @ApiProperty()
