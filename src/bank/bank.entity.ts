@@ -47,7 +47,7 @@ export class Bank {
   speciesInfo: Genus
 
   @Column()
-  @ApiProperty({ name: 'bank_id' })
+  @ApiProperty({ name: 'bank_number' })
   bankNumber: number
 
   @Column()
