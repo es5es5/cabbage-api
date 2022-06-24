@@ -11,4 +11,10 @@ export class ScheduleDto {
 
   @ApiProperty({ description: '' })
   allDay: boolean
+
+  @ApiProperty({ description: '' })
+  start: Date
+
+  @ApiProperty({ description: '' })
+  end: Date
 }

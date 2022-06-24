@@ -11,10 +11,6 @@ export class Schedule {
   @ApiProperty()
   able: boolean
 
-  @Column({ default: true, name: 'all_day' })
-  @ApiProperty()
-  allDay: boolean
-
   @CreateDateColumn()
   @ApiProperty()
   createtime: Date
@@ -26,4 +22,16 @@ export class Schedule {
   @Column()
   @ApiProperty()
   memo: string
+
+  @Column({ default: true, name: 'all_day' })
+  @ApiProperty()
+  allDay: boolean
+
+  @Column()
+  @ApiProperty()
+  start: Date
+
+  @Column()
+  @ApiProperty()
+  end: Date
 }
