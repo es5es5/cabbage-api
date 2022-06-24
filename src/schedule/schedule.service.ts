@@ -29,8 +29,6 @@ export class ScheduleService {
   }
 
   remove(id: string) {
-    return this.placementRepository.update({ id }, {
-      able: false
-    })
+    return this.placementRepository.update({ id }, { able: false })
   }
 }

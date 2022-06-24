@@ -29,8 +29,6 @@ export class OriginService {
   }
 
   remove(id: number) {
-    return this.originRepository.update({ id }, {
-      able: false
-    })
+    return this.originRepository.update({ id }, { able: false })
   }
 }

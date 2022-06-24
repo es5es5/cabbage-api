@@ -30,8 +30,6 @@ export class BankService {
   }
 
   remove(id: number) {
-    return this.bankRepository.update({ id }, {
-      able: false
-    })
+    return this.bankRepository.update({ id }, { able: false })
   }
 }

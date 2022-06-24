@@ -29,8 +29,6 @@ export class GenusService {
   }
 
   remove(id: number) {
-    return this.genusRepository.update({ id }, {
-      able: false
-    })
+    return this.genusRepository.update({ id }, { able: false })
   }
 }

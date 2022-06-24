@@ -29,8 +29,6 @@ export class MicroorganismService {
   }
 
   remove(id: string) {
-    return this.microorganismRepository.update({ id }, {
-      able: false
-    })
+    return this.microorganismRepository.update({ id }, { able: false })
   }
 }

@@ -29,8 +29,6 @@ export class PlacementService {
   }
 
   remove(id: number) {
-    return this.placementRepository.update({ id }, {
-      able: false
-    })
+    return this.placementRepository.update({ id }, { able: false })
   }
 }
