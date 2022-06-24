@@ -8,7 +8,7 @@ export class AppController {
 
   @Get()
   @ApiOperation({
-    description: 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOjY0LCJ1c2VybmFtZSI6InN0cmluZyIsImlhdCI6MTY1NTc5OTU2NywiZXhwIjoxNjU1OTA3NTY3fQ.sz1Zg1pShpP4spKzCxFyMoR-XYImdKui9hgPlXwUxcA'
+    description: 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOjY0LCJ1c2VybmFtZSI6InN0cmluZyIsImlhdCI6MTY1NjA1MzEzNiwiZXhwIjoxNjU2MDY3NTM2fQ.aWT1nBa0TXFroE8yK-ZN_fhikzfV3UJWmx5f_P7i5O4'
   })
   hello(): string {
     return 'Hello, Cabbage!'

@@ -9,9 +9,10 @@ import { OriginModule } from './origin/origin.module';
 import { BankModule } from './bank/bank.module';
 import { GenusModule } from './genus/genus.module';
 import { PlacementModule } from './placement/placement.module';
+import { ScheduleModule } from './schedule/schedule.module';
 
 @Module({
-  imports: [TypeOrmModule.forRoot(typeORMConfig), MicroorganismModule, AuthModule, UsersModule, OriginModule, BankModule, GenusModule, PlacementModule],
+  imports: [TypeOrmModule.forRoot(typeORMConfig), MicroorganismModule, AuthModule, UsersModule, OriginModule, BankModule, GenusModule, PlacementModule, ScheduleModule],
   controllers: [AppController],
   providers: [],
 })
