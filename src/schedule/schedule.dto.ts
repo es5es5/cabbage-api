@@ -17,4 +17,7 @@ export class ScheduleDto {
 
   @ApiProperty({ description: '' })
   end: Date
+
+  @ApiProperty({ description: '' })
+  color: string
 }

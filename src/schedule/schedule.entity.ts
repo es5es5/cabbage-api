@@ -43,4 +43,8 @@ export class Schedule {
   @Column()
   @ApiProperty()
   end: Date
+
+  @Column()
+  @ApiProperty()
+  color: string
 }
