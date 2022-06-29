@@ -11,8 +11,11 @@ export class BankService {
     private bankRepository: BankRepository
   ) {}
 
-  create(bank: BankDto) {
-    return this.bankRepository.save(bank)
+  async create(bank: BankDto) {
+    const result = await this.bankRepository.save(bank)
+    result.code = `${new Date().getFullYear().toString().substring(2)}-${result.category}-${result.id.toString().padStart(4, '0')}`
+    console.info(result)
+    return this.update(result.id, result)
   }
 
   findAll() {
