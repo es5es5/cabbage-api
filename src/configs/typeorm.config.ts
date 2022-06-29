@@ -3,7 +3,7 @@ import { ConfigModule } from '@nestjs/config';
 ConfigModule.forRoot()
 
 export const typeORMConfig: TypeOrmModuleOptions = {
-  logging: 'all',
+  // logging: 'all',
   type: 'mysql', //Database 설정
   host: process.env.DATABASE_HOST,
   port: parseInt(process.env.DATABASE_PORT),
