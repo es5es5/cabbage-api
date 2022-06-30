@@ -13,7 +13,7 @@ export class AuthService {
   ) {}
 
   async validateUser(users: LoginDto): Promise<any> {
-    const user = await this.usersService.findUser(users.username)
+    const user = await this.usersService.findUserForLogin(users.username)
     if (!user) throw new NotFoundException()
 
     const checkPassword = await bcrypt.compare(users.password, user.password)

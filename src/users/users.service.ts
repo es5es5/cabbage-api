@@ -17,8 +17,10 @@ export class UsersService {
     return this.usersRepository.save(user)
   }
 
-  findAll() {
-    return this.usersRepository.find({ where: { able: true }, order: { createtime: 'DESC' }})
+  async findAll() {
+    const users = await this.usersRepository.find({ where: { able: true }, order: { createtime: 'DESC' }})
+    users.forEach(user => delete user['password'])
+    return users
   }
 
   async findOne(id: number): Promise<Users> {
@@ -27,13 +29,14 @@ export class UsersService {
     return user
   }
 
-  findUser(username: string): Promise<Users> {
-    return this.usersRepository.findOneBy({ username, able: true })
+  async findUserForLogin(username: string): Promise<Users> {
+    const user = await this.usersRepository.findOneBy({ username, able: true })
+    return user
   }
 
-  update(id: number, user: UsersDto) {
-    this.usersRepository.update({ id }, user)
-    return user
+  async update(id: number, user: UsersDto) {
+    const result = await this.usersRepository.update({ id }, user)
+    return result
   }
 
   remove(id: number) {
