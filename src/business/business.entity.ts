@@ -103,4 +103,8 @@ export class Business {
   @Column({ name: 'end_date' })
   @ApiProperty()
   endDate: Date
+
+  @Column({ name: 'memo' })
+  @ApiProperty()
+  memo: string
 }

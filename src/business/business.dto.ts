@@ -62,4 +62,7 @@ export class BusinessDto {
 
   @ApiProperty({ description: '끝일자' })
   endDate: Date
+
+  @ApiProperty({ description: '메모' })
+  memo: string
 }
