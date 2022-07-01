@@ -24,83 +24,83 @@ export class Business {
   @ManyToOne(() => Users, a => a.id, { eager: true })
   writerInfo: Users
 
-  @Column()
-  @ApiProperty({ name: 'business_title' })
+  @Column({ name: 'business_title' })
+  @ApiProperty()
   businessTitle: string
 
-  @Column()
-  @ApiProperty({ name: 'business_manager' })
+  @Column({ name: 'business_manager' })
+  @ApiProperty()
   businessManager: string
 
-  @Column()
-  @ApiProperty({ name: 'project_title' })
+  @Column({ name: 'project_title' })
+  @ApiProperty()
   projectTitle: string
 
-  @Column()
-  @ApiProperty({ name: 'project_manager' })
+  @Column({ name: 'project_manager' })
+  @ApiProperty()
   projectManager: string
 
-  @Column()
-  @ApiProperty({ name: 'project_state' })
+  @Column({ name: 'project_state' })
+  @ApiProperty()
   projectState: string
 
-  @Column()
-  @ApiProperty({ name: 'project_pdf' })
+  @Column({ name: 'project_pdf' })
+  @ApiProperty()
   projectPdf: string
 
-  @Column()
-  @ApiProperty({ name: 'supervisor' })
+  @Column({ name: 'supervisor' })
+  @ApiProperty()
   supervisor: string
 
-  @Column()
-  @ApiProperty({ name: 'money' })
+  @Column({ name: 'money' })
+  @ApiProperty()
   money: string
 
-  @Column()
-  @ApiProperty({ name: 'project_no' })
+  @Column({ name: 'project_no' })
+  @ApiProperty()
   projectNo: string
 
-  @Column()
-  @ApiProperty({ name: 'department' })
+  @Column({ name: 'department' })
+  @ApiProperty()
   department: string
 
-  @Column()
-  @ApiProperty({ name: 'specialized_organization' })
+  @Column({ name: 'specialized_organization' })
+  @ApiProperty()
   specializedOrganization: string
 
-  @Column()
-  @ApiProperty({ name: 'presentation_state' })
+  @Column({ name: 'presentation_state' })
+  @ApiProperty()
   presentationState: string
 
-  @Column()
-  @ApiProperty({ name: 'supervisor_study_department' })
+  @Column({ name: 'supervisor_study_department' })
+  @ApiProperty()
   supervisorStudyDepartment: string
 
-  @Column()
-  @ApiProperty({ name: 'supervisor_study_manager' })
+  @Column({ name: 'supervisor_study_manager' })
+  @ApiProperty()
   supervisorStudyManager: string
 
-  @Column()
-  @ApiProperty({ name: 'joint_study_department' })
+  @Column({ name: 'joint_study_department' })
+  @ApiProperty()
   jointStudyDepartment: string
 
-  @Column()
-  @ApiProperty({ name: 'joint_study_manager' })
+  @Column({ name: 'joint_study_manager' })
+  @ApiProperty()
   jointStudyManager: string
 
-  @Column()
-  @ApiProperty({ name: 'rent_study_department' })
+  @Column({ name: 'rent_study_department' })
+  @ApiProperty()
   rentStudyDepartment: string
 
-  @Column()
-  @ApiProperty({ name: 'rent_study_manager' })
+  @Column({ name: 'rent_study_manager' })
+  @ApiProperty()
   rentStudyManager: string
 
-  @Column()
-  @ApiProperty({ name: 'start_date' })
-  startDate: string
+  @Column({ name: 'start_date' })
+  @ApiProperty()
+  startDate: Date
 
-  @Column()
-  @ApiProperty({ name: 'end_date' })
-  endDate: string
+  @Column({ name: 'end_date' })
+  @ApiProperty()
+  endDate: Date
 }
