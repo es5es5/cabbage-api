@@ -95,4 +95,12 @@ export class Business {
   @Column()
   @ApiProperty({ name: 'rent_study_manager' })
   rentStudyManager: string
+
+  @Column()
+  @ApiProperty({ name: 'start_date' })
+  startDate: string
+
+  @Column()
+  @ApiProperty({ name: 'end_date' })
+  endDate: string
 }

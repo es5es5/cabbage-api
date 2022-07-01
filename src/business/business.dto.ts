@@ -56,4 +56,10 @@ export class BusinessDto {
 
   @ApiProperty()
   rentStudyManager: string
+
+  @ApiProperty()
+  startDate: string
+
+  @ApiProperty()
+  endDate: string
 }
