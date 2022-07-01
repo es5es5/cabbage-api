@@ -2,7 +2,7 @@ import { ApiProperty } from "@nestjs/swagger"
 import { Users } from "src/users/users.entity"
 import { Column, CreateDateColumn, Entity, JoinColumn, ManyToOne, PrimaryGeneratedColumn } from "typeorm"
 
-@Entity({ name: 'cuome_bank' })
+@Entity({ name: 'cuome_business' })
 export class Business {
   @PrimaryGeneratedColumn('increment')
   @ApiProperty()
