@@ -15,6 +15,10 @@ export class Users {
   @ApiProperty()
   createtime: Date
 
+  @Column({ name: 'memo' })
+  @ApiProperty()
+  memo: string
+
   @Column({ unique: true })
   @ApiProperty()
   username: string
@@ -26,4 +30,20 @@ export class Users {
   @Column({ name: 'display_name' })
   @ApiProperty()
   displayName: string
+
+  @Column({ name: 'birthday' })
+  @ApiProperty()
+  birthday: string
+
+  @Column({ name: 'authority' })
+  @ApiProperty()
+  authority: string
+
+  @Column({ name: 'position' })
+  @ApiProperty()
+  position: string
+
+  @Column({ default: true })
+  @ApiProperty()
+  use: boolean
 }
