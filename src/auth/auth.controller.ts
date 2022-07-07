@@ -1,9 +1,10 @@
-import { Body, Controller, Get, HttpCode, Post, Req, Res, UseGuards } from '@nestjs/common';
+import { Body, Controller, Get, Post, Put, Req, Res, UseGuards } from '@nestjs/common';
 import { ApiBearerAuth, ApiTags } from '@nestjs/swagger';
 import { Request, Response } from 'express';
 import { UsersDto } from 'src/users/users.dto';
 import { UsersService } from 'src/users/users.service';
 import { AuthService } from './auth.service';
+import { ChangePasswordDto } from './change-password.dto';
 import { JwtAuthGuard } from './jwt-auth.guard';
 import { LoginDto } from './login.dto';
 
@@ -55,5 +56,12 @@ export class AuthController {
   @ApiBearerAuth('Authorization')
   getProfile(@Req() req) {
     return this.usersService.findOne(req.user.userId)
+  }
+
+  @Put('change-password')
+  @UseGuards(JwtAuthGuard)
+  @ApiBearerAuth('Authorization')
+  changePassword(@Req() req, @Body() users: ChangePasswordDto) {
+    return this.authService.changePassword(req.user.userId, users)
   }
 }

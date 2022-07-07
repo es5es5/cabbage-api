@@ -4,6 +4,7 @@ import { UsersService } from '../users/users.service';
 import { LoginDto } from './login.dto';
 import * as bcrypt from 'bcrypt';
 import { Request, Response } from 'express';
+import { ChangePasswordDto } from './change-password.dto';
 
 @Injectable()
 export class AuthService {
@@ -40,5 +41,9 @@ export class AuthService {
 
   public getCookieForLogOut() {
     return `Authentication=; HttpOnly; Path=/; Max-Age=0`;
+  }
+
+  async changePassword(userId: string, users: ChangePasswordDto) {
+    console.info(userId, users)
   }
 }
