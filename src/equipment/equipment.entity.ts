@@ -24,6 +24,10 @@ export class Equipment {
   @JoinColumn({ name: 'writer_id' })
   writerInfo: Users
 
+  @Column({ name: 'category' })
+  @ApiProperty()
+  category: string
+
   @Column()
   @ApiProperty()
   name: string
@@ -43,6 +47,10 @@ export class Equipment {
   @Column({ name: 'maker' })
   @ApiProperty()
   maker: string
+
+  @Column({ name: 'count' })
+  @ApiProperty()
+  count: string
 
   @Column()
   @ApiProperty()

@@ -3,6 +3,9 @@ import { ApiProperty } from "@nestjs/swagger"
 export class EquipmentDto {
   writerId: number
 
+  @ApiProperty({ description: '구분' })
+  category: string
+
   @ApiProperty({ description: '장비명' })
   name: string
 
@@ -17,6 +20,9 @@ export class EquipmentDto {
 
   @ApiProperty({ description: '제조사' })
   maker: string
+
+  @ApiProperty({ description: '개수' })
+  count: string
 
   @ApiProperty({ description: '메모' })
   memo: string
