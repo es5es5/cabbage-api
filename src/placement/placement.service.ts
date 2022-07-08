@@ -1,8 +1,8 @@
 import { Injectable } from '@nestjs/common';
 import { InjectRepository } from '@nestjs/typeorm';
-import { PlacementRepository } from './placement.repository';
 import { PlacementDto } from './placement.dto';
 import { Placement } from './placement.entity';
+import { PlacementRepository } from './placement.repository';
 
 @Injectable()
 export class PlacementService {
