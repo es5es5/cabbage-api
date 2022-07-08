@@ -26,7 +26,7 @@ export class AuthService {
       console.info(new Date(), `Login User: ${user.username} ${user.displayName}`)
       return result;
     } else {
-      throw new UnauthorizedException();
+      throw new HttpException('비밀번호가 틀렸습니다.', HttpStatus.BAD_REQUEST)
     }
   }
 
@@ -43,7 +43,19 @@ export class AuthService {
     return `Authentication=; HttpOnly; Path=/; Max-Age=0`;
   }
 
-  async changePassword(userId: string, users: ChangePasswordDto) {
-    console.info(userId, users)
+  async changePassword(userId: number, changeUser: ChangePasswordDto) {
+    if (changeUser.password1 !== changeUser.password2) {
+      throw new HttpException('새로운 비밀번호가 같지 않습니다.', HttpStatus.BAD_REQUEST)
+    }
+
+    const loginUser = new LoginDto()
+    loginUser.username = changeUser.username
+    loginUser.password = changeUser.password
+    const payload = await this.validateUser(loginUser)
+    if (payload) {
+      return this.usersService.changePassword(userId, changeUser)
+    } else {
+      throw new HttpException('사용자 정보가 없습니다.', HttpStatus.UNAUTHORIZED)
+    }
   }
 }
