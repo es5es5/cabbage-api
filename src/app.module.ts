@@ -13,9 +13,10 @@ import { ScheduleModule } from './schedule/schedule.module';
 import { StudyTopicModule } from './study_topic/study_topic.module';
 import { BusinessModule } from './business/business.module';
 import { EquipmentModule } from './equipment/equipment.module';
+import { ReagentModule } from './reagent/reagent.module';
 
 @Module({
-  imports: [TypeOrmModule.forRoot(typeORMConfig), MicroorganismModule, AuthModule, UsersModule, OriginModule, BankModule, GenusModule, PlacementModule, ScheduleModule, StudyTopicModule, BusinessModule, EquipmentModule],
+  imports: [TypeOrmModule.forRoot(typeORMConfig), MicroorganismModule, AuthModule, UsersModule, OriginModule, BankModule, GenusModule, PlacementModule, ScheduleModule, StudyTopicModule, BusinessModule, EquipmentModule, ReagentModule],
   controllers: [AppController],
   providers: [],
 })
