@@ -23,7 +23,7 @@ export class Users {
   @ApiProperty()
   username: string
 
-  @Column({ select: false })
+  @Column()
   @ApiProperty()
   password: string
 
