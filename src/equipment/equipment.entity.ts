@@ -24,10 +24,6 @@ export class Equipment {
   @JoinColumn({ name: 'writer_id' })
   writerInfo: Users
 
-  @Column({ name: 'category' })
-  @ApiProperty()
-  category: string
-
   @Column()
   @ApiProperty()
   name: string
