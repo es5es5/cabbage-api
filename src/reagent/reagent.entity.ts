@@ -60,6 +60,10 @@ export class Reagent {
   @ApiProperty()
   price: string
 
+  @Column({ name: 'count', nullable: false, default: '0' })
+  @ApiProperty()
+  count: string
+
   @Column({ name: 'unit' })
   @ApiProperty()
   unit: string

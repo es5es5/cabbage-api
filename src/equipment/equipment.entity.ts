@@ -8,11 +8,11 @@ export class Equipment {
   @ApiProperty()
   id: number
 
-  @Column({ default: true })
+  @Column({ default: true, nullable: false })
   @ApiProperty()
   able: boolean
 
-  @CreateDateColumn()
+  @CreateDateColumn({nullable: false})
   @ApiProperty()
   createtime: Date
 
@@ -44,9 +44,13 @@ export class Equipment {
   @ApiProperty()
   maker: string
 
-  @Column({ name: 'count' })
+  @Column({ name: 'count', nullable: false, default: '0' })
   @ApiProperty()
   count: string
+
+  @Column({ name: 'unit' })
+  @ApiProperty()
+  unit: string
 
   @Column()
   @ApiProperty()

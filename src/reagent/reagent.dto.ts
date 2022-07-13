@@ -24,6 +24,9 @@ export class ReagentDto {
   @ApiProperty({ description: '개수' })
   count: string
 
+  @ApiProperty({ description: '단위' })
+  unit: string
+
   @ApiProperty({ description: '메모' })
   memo: string
 }
