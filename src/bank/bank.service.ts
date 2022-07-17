@@ -13,8 +13,8 @@ export class BankService {
 
   async create(bank: BankDto) {
     const result = await this.bankRepository.save(bank)
-    // 22-식품-0001
-    result.code = `${new Date().getFullYear().toString().substring(2)}-${result.category}-${result.id.toString().padStart(4, '0')}`
+    // 식품-22-0001
+    result.code = `${result.category}-${new Date().getFullYear().toString().substring(2)}-${result.id.toString().padStart(4, '0')}`
     return this.update(result.id, result)
   }
 
