@@ -14,9 +14,10 @@ import { StudyTopicModule } from './study_topic/study_topic.module';
 import { BusinessModule } from './business/business.module';
 import { EquipmentModule } from './equipment/equipment.module';
 import { ReagentModule } from './reagent/reagent.module';
+import { StockPlacementModule } from './bank/stock-placement/stock-placement.module';
 
 @Module({
-  imports: [TypeOrmModule.forRoot(typeORMConfig), MicroorganismModule, AuthModule, UsersModule, OriginModule, BankModule, GenusModule, PlacementModule, ScheduleModule, StudyTopicModule, BusinessModule, EquipmentModule, ReagentModule],
+  imports: [TypeOrmModule.forRoot(typeORMConfig), MicroorganismModule, AuthModule, UsersModule, OriginModule, BankModule, GenusModule, PlacementModule, ScheduleModule, StudyTopicModule, BusinessModule, EquipmentModule, ReagentModule, StockPlacementModule],
   controllers: [AppController],
   providers: [],
 })
