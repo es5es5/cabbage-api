@@ -15,13 +15,12 @@ export class StockPlacementService {
     stockPlacementList.forEach(stockPlacement => {
       stockPlacement.bankId = bankId
       stockPlacement.writerId = writerId
-      this.stockPlacementRepository.save(stockPlacement)
     })
-    return stockPlacementList
+    return this.stockPlacementRepository.save(stockPlacementList)
   }
 
   findAll(bankId: number) {
-    return this.stockPlacementRepository.find({ where: { bankId, able: true }, order: { createtime: 'DESC' }})
+    return this.stockPlacementRepository.find({ where: { bankId, able: true }, order: { createtime: 'ASC' }})
   }
 
   findOne(bankId: number, id: string): Promise<StockPlacement> {
