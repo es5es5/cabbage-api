@@ -1,6 +1,6 @@
 import { Injectable } from '@nestjs/common';
 import { InjectRepository } from '@nestjs/typeorm';
-import { StockPlacementRepository } from './genus.repository';
+import { StockPlacementRepository } from './stock-placement.repository';
 import { StockPlacement } from './stock-placement.entity';
 import { StockPlacementDto } from './stock-placemnet.dto';
 
@@ -11,24 +11,29 @@ export class StockPlacementService {
     private stockPlacementRepository: StockPlacementRepository
   ) {}
 
-  create(stockPlacement: StockPlacementDto) {
-    return this.stockPlacementRepository.save(stockPlacement)
+  create(bankId: number, writerId: number, stockPlacementList: Array<StockPlacementDto>) {
+    stockPlacementList.forEach(stockPlacement => {
+      stockPlacement.bankId = bankId
+      stockPlacement.writerId = writerId
+      this.stockPlacementRepository.save(stockPlacement)
+    })
+    return stockPlacementList
   }
 
-  findAll() {
-    return this.stockPlacementRepository.find({ where: { able: true }, order: { createtime: 'DESC' }})
+  findAll(bankId: number) {
+    return this.stockPlacementRepository.find({ where: { bankId, able: true }, order: { createtime: 'DESC' }})
   }
 
-  findOne(id: string): Promise<StockPlacement> {
-    return this.stockPlacementRepository.findOneBy({ id, able: true })
+  findOne(bankId: number, id: string): Promise<StockPlacement> {
+    return this.stockPlacementRepository.findOneBy({ bankId, id, able: true })
   }
 
-  update(id: string, stockPlacement: StockPlacementDto) {
-    this.stockPlacementRepository.update({ id }, stockPlacement)
+  update(bankId: number, id: string, stockPlacement: StockPlacementDto) {
+    this.stockPlacementRepository.update({ bankId, id }, stockPlacement)
     return stockPlacement
   }
 
-  remove(id: string) {
-    return this.stockPlacementRepository.update({ id }, { able: false })
+  remove(bankId: number, id: string) {
+    return this.stockPlacementRepository.update({ bankId, id }, { able: false })
   }
 }

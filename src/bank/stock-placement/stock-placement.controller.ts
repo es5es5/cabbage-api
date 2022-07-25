@@ -4,44 +4,43 @@ import { JwtAuthGuard } from 'src/auth/jwt-auth.guard';
 import { StockPlacementService } from './stock-placement.service';
 import { StockPlacementDto } from './stock-placemnet.dto';
 
-@Controller('stock-placement')
+@Controller('/bank/:bankId/stock-placement')
 @ApiTags('뱅크 보관장소 (StockPlacement)')
 export class StockPlacementController {
   constructor(private readonly stockPlacementService: StockPlacementService) {}
 
-  @Post()
+  @Post('')
   @UseGuards(JwtAuthGuard)
   @ApiBearerAuth('Authorization')
-  create(@Req() reqeust, @Body() stockPlacement: StockPlacementDto) {
-    stockPlacement.writerId = reqeust.user.userId
-    return this.stockPlacementService.create(stockPlacement);
+  create(@Param('bankId') bankId: number, @Req() reqeust, @Body() stockPlacementList: Array<StockPlacementDto>) {
+    return this.stockPlacementService.create(bankId, reqeust.user.userId, stockPlacementList);
   }
 
   @Get()
   @UseGuards(JwtAuthGuard)
   @ApiBearerAuth('Authorization')
-  findAll() {
-    return this.stockPlacementService.findAll();
+  findAll(@Param('bankId') bankId: number) {
+    return this.stockPlacementService.findAll(bankId);
   }
 
   @Get(':id')
   @UseGuards(JwtAuthGuard)
   @ApiBearerAuth('Authorization')
-  findOne(@Param('id') id: string) {
-    return this.stockPlacementService.findOne(id);
+  findOne(@Param('bankId') bankId: number, @Param('id') id: string) {
+    return this.stockPlacementService.findOne(bankId, id);
   }
 
   @Put(':id')
   @UseGuards(JwtAuthGuard)
   @ApiBearerAuth('Authorization')
-  update(@Param('id') id: string, @Body() stockPlacement: StockPlacementDto) {
-    return this.stockPlacementService.update(id, stockPlacement);
+  update(@Param('bankId') bankId: number, @Param('id') id: string, @Body() stockPlacement: StockPlacementDto) {
+    return this.stockPlacementService.update(bankId, id, stockPlacement);
   }
 
   @Delete(':id')
   @UseGuards(JwtAuthGuard)
   @ApiBearerAuth('Authorization')
-  remove(@Param('id') id: string) {
-    return this.stockPlacementService.remove(id);
+  remove(@Param('bankId') bankId: number, @Param('id') id: string) {
+    return this.stockPlacementService.remove(bankId, id);
   }
 }
