@@ -25,16 +25,7 @@ export class BankDto {
   gettingDate: Date
 
   @ApiProperty({ description: '' })
-  stockPlacementId: number
-
-  @ApiProperty({ description: '' })
   rentPlacementId: number
-
-  @ApiProperty({ description: '' })
-  liquidCount: number
-
-  @ApiProperty({ description: '' })
-  powderCount: number
 
   @ApiProperty({ description: '' })
   sequencing: string
