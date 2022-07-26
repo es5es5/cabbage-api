@@ -41,7 +41,7 @@ export class StockPlacement {
   @ApiProperty()
   powderCount: string
 
-  @JoinColumn({ name: 'bank_id' })
-  @ManyToOne(() => Bank, a => a.id)
+  @JoinColumn({ name: 'id' })
+  @ManyToOne(() => Bank, a => a.stockPlacementList)
   bankInfo: Bank
 }

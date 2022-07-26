@@ -97,6 +97,6 @@ export class Bank {
   etcActivity: string
 
   @JoinColumn({ name: 'bank_id' })
-  @OneToMany(() => StockPlacement, a => a.bankId)
+  @OneToMany(() => StockPlacement, a => a.bankInfo, { eager: true })
   stockPlacementList: StockPlacement[]
 }
