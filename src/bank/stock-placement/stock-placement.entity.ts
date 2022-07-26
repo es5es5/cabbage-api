@@ -1,6 +1,7 @@
 import { ApiProperty } from "@nestjs/swagger"
 import { Users } from "src/users/users.entity"
 import { Column, CreateDateColumn, Entity, JoinColumn, ManyToOne, PrimaryGeneratedColumn } from "typeorm"
+import { Bank } from "../bank.entity"
 
 @Entity({ name: 'cuome_bank_stock_placement' })
 export class StockPlacement {
@@ -39,4 +40,8 @@ export class StockPlacement {
   @Column({ name: 'powder_count' })
   @ApiProperty()
   powderCount: string
+
+  @JoinColumn({ name: 'bank_id' })
+  @ManyToOne(() => Bank, a => a.id)
+  bankInfo: Bank
 }

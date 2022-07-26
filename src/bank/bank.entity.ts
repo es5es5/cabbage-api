@@ -3,7 +3,8 @@ import { Genus } from "src/genus/genus.entity"
 import { Origin } from "src/origin/origin.entity"
 import { Placement } from "src/placement/placement.entity"
 import { Users } from "src/users/users.entity"
-import { Column, CreateDateColumn, Entity, JoinColumn, ManyToOne, PrimaryGeneratedColumn } from "typeorm"
+import { Column, CreateDateColumn, Entity, JoinColumn, ManyToOne, OneToMany, PrimaryGeneratedColumn } from "typeorm"
+import { StockPlacement } from "./stock-placement/stock-placement.entity"
 
 @Entity({ name: 'cuome_bank' })
 export class Bank {
@@ -67,14 +68,6 @@ export class Bank {
   @ApiProperty()
   gettingDate: Date
 
-  @Column({ name: 'stock_placement_id' })
-  @ApiProperty()
-  stockPlacementId: number
-
-  @JoinColumn({ name: 'stock_placement_id' })
-  @ManyToOne(() => Placement, a => a.id, { eager: true })
-  stockPlacementInfo: Placement
-
   @Column({ name: 'rent_placement_id' })
   @ApiProperty()
   rentPlacementId: number
@@ -82,14 +75,6 @@ export class Bank {
   @JoinColumn({ name: 'rent_placement_id' })
   @ManyToOne(() => Placement, a => a.id, { eager: true })
   rentPlacementInfo: Placement
-
-  @Column({ name: 'liquid_count' })
-  @ApiProperty()
-  liquidCount: number
-
-  @Column({ name: 'powder_count' })
-  @ApiProperty()
-  powderCount: number
 
   @Column()
   @ApiProperty()
@@ -110,4 +95,8 @@ export class Bank {
   @Column({ name: 'etc_activity' })
   @ApiProperty()
   etcActivity: string
+
+  @JoinColumn({ name: 'bank_id' })
+  @OneToMany(() => StockPlacement, a => a.bankId)
+  stockPlacementList: StockPlacement[]
 }
